@@ -54,3 +54,8 @@ coverage.xml
 /docs/_build/
 
 backup
+
+# ------------------------------------------------------------------------------
+# Large model files or big archives
+32L.tar
+projects/PLATO-XL/11B.tar

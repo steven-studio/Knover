@@ -43,3 +43,21 @@ This project aims to facilitate further research progress in dialogue generation
 
 ## Contact information
 For help or issues using Knover, please submit a GitHub issue.
+
+## Metal Support for macOS (Apple Silicon)
+
+**Motivation**  
+Currently, this project relies on CUDA for GPU acceleration, which is not feasible on Apple Silicon Macs. Since my Mac laptop (M4/M1/M2) uses Metal for GPU, I started implementing Metal-based acceleration so we can run deep learning tasks locally without an external NVIDIA GPU.
+
+**Key Changes**  
+- Added a new module (`metal_backend.*`) to handle GPU kernel calls via Metal.  
+- Modified `CMakeLists.txt` and environment scripts to detect macOS Metal environment.  
+- Adjusted some logic in `xxx.py` to switch between CUDA or Metal at runtime.
+
+**Expected Outcome**  
+- Users on macOS Apple Silicon can take advantage of Metal GPU to run the project faster than CPU-only.  
+- This is an initial implementation; further optimization (e.g., memory usage or specialized Metal shaders) may come later.
+
+**Known Limitations**  
+- Not all GPU kernels are converted yet; some operations may still fall back to CPU.  
+- Testing mainly done on macOS 13.0 with an M4 chip. More real-world testing needed.
