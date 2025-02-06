@@ -59,3 +59,4 @@ backup
 # Large model files or big archives
 32L.tar
 projects/PLATO-XL/11B.tar
+projects/PLATO-XL/models/11B
